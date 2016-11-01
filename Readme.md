@@ -1,4 +1,4 @@
-![Docker](https://www.docker.com/sites/all/themes/docker/assets/images/brand-full.svg)
+![Docker](https://msopentech.com/wp-content/uploads/docker-logo.png)
 
 # About
 Pure alpine linux docker. Docker inside docker.
@@ -10,29 +10,19 @@ Pure alpine linux docker. Docker inside docker.
 
 Starts a shell ready to docker
 ```bash
-docker run -ti danielguerra/alpine-docker /bin/sh
+docker run -ti --privileged danielguerra/alpine-docker /bin/sh
 ```
 
 ## Daemon
 
 ```bash
-docker run --name alpine-docker -p 2375:2375 -d danielguerra/alpine-docker
+docker run --name alpine-docker -p 2375:2375 --privileged -d danielguerra/alpine-docker
 ```
 
 To start a shell in your new container.
 
 ```bash
 docker exec -ti alpine-docker /bin/sh
-```
-
-## Remote docker
-
-Set your client system variables and go
-```bash
-export DOCKER_API_VERSION=1.23
-export DOCKER_HOST='tcp://127.0.0.1:2375'
-docker ps
-docker-compose up
 ```
 
 ## Inside the container shell
@@ -51,5 +41,15 @@ docker volume ls
 If you need docker-compose inside your alpine-docker container.
 ```bash
 setup-compose
+docker-compose up
+```
+
+## Remote docker
+
+Set your client system variables and go
+```bash
+export DOCKER_API_VERSION=1.23
+export DOCKER_HOST='tcp://127.0.0.1:2375'
+docker ps
 docker-compose up
 ```

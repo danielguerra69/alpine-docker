@@ -1,2 +1,2 @@
 #!/bin/sh
-docker daemon --host=unix:///var/run/docker.sock --host=tcp://$HOSTNAME:2375
+docker daemon --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
