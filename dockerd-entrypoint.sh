@@ -9,7 +9,8 @@ fi
 if [[ "$1" != 'docker' ]]; then
 	docker daemon \
 			--host=unix:///var/run/docker.sock \
-			--host=tcp://0.0.0.0:2375 1>/dev/null &
+			--host=tcp://0.0.0.0:2375  \
+			--storage-driver=vfs &
 fi
 
 # set docker settings
