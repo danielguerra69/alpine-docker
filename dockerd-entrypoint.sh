@@ -6,7 +6,8 @@ if [ -f "/var/run/docker.pid" ]; then
 fi
 
 # Add docker daemon as command if needed
-if [[ "$1" != 'docker' ]]; then
+if [[ "$1" != 'dockerd-cmd.sh' ]]; then
+	echo "Starting Docker Daemon"
 	docker daemon \
 			--host=unix:///var/run/docker.sock \
 			--host=tcp://0.0.0.0:2375  \
